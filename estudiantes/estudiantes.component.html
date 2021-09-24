@@ -1,0 +1,126 @@
+<div class="container">
+  <form class="form-horizontal" role="form">
+    <br>
+
+    <div class="row"> 
+      
+      <div class="col-md-6">
+        <div class="form-group form-inline">
+          <label class="pr-2">Nombre o Apellido:</label>
+          <input type="text" class="form-control col" name="buscadorNombres" id="buscadorNombres_id"
+            (ngModelChange)="filtrarNombre($event)" [ngModel]="nombreFiltrado">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group form-inline codigo">
+          <label for="filtroDiagnostico" class="col-sm-2 col-md-2 col-lg-2 mr-md-2  mr-lg-4 ">Código:</label>
+          <input class="form-control col-sm-3 col-md-3 col-lg-3" [(ngModel)]="filtro.numHistorico" (ngModelChange)="filtrarNombre()" type="string"  name="filtroNumHistorico">
+            <p class=""><b>/</b></p>
+          <input class="form-control col-sm-3 col-md-3 col-lg-3" [(ngModel)]="filtro.numGestion" (ngModelChange)="filtrarNombre()" type="string"  name="filtroNumGestion">
+            <p class=""><b>/</b></p>
+          <input class="form-control col-sm-3 col-md-3 col-lg-3" [(ngModel)]="filtro.gestionRegistro" (ngModelChange)="filtrarNombre()" type="string"  name="filtroGestionRegistro">
+        </div>        
+      </div>
+
+    </div>
+
+    <div class="row">
+  
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="filtroSexo">Sexo:</label>
+          <select [(ngModel)]="filtro.sexo" (ngModelChange)="filtrarNombre()" class="form-control" name="filtroSexo">
+            <option value="" selected>Todos</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="filtroDiagnostico">Diagnósticos:</label>
+          <select [(ngModel)]="filtro.diagnostico" (ngModelChange)="filtrarNombre()" class="form-control" name="filtroDiagnostico">
+            <option value="" selected>Todos</option>
+            <option *ngFor='let d of diagnosticos' [value]="d.diagnostico">{{d.diagnostico}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="filtroDiagnostico">Estados:</label>
+          <select [(ngModel)]="filtro.estado" (ngModelChange)="filtrarNombre()" class="form-control" name="filtroEstado">
+            <option value="" selected>Todos</option>
+            <option *ngFor='let e of estados' [value]="e.estado">{{e.estado}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="filtroDiagnostico">Mes:</label>
+          <select type="number" [(ngModel)]="filtro.mes" (ngModelChange)="filtrarNombre()" class="form-control" name="filtroMes">
+            <option value="" selected>Todos</option>
+            <option value="1">enero</option>
+            <option value="2">febrero</option>
+            <option value="3">marzo</option>
+            <option value="4">abril</option>
+            <option value="5">mayo</option>
+            <option value="6">junio</option>
+            <option value="7">julio</option>
+            <option value="8">agosto</option>
+            <option value="9">septiembre</option>
+            <option value="10">octubre</option>
+            <option value="11">noviembre</option>
+            <option value="12">diciembre</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="filtroDiagnostico">Año:</label>
+            <input [(ngModel)]="filtro.anio" (ngModelChange)="filtrarNombre()" type="string" class="form-control" name="filtroAnio">
+
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+  <hr>
+  <h3 class="m-3"><b>Estudiantes</b></h3>
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead class="thead design-title-col">
+          <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Fecha de nacimiento</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Sexo</th>
+            <th></th>
+    
+        </thead>
+        <tbody>
+          <tr class="text-center" *ngFor="let estudiante of nombreEstudiantesBuscados">
+            <td><h6>{{estudiante.numHistorico}}/{{estudiante.numGestion}}/{{estudiante.gestionRegistro}}</h6></td>
+            <td><h6>{{estudiante.nombres}} {{estudiante.apellidos}}</h6></td>
+            <td><h6>{{mostrarBienLaFecha(estudiante.fecNacimiento)}}</h6></td>
+            <td><h6>{{estudiante.direccion}}</h6></td>
+            <td><h6>{{estudiante.sexo}}</h6></td>
+    
+            <td class="pr-1"><button type="button" class="btn-green-avanza m-1 float-right" (click)="abrirEstudiante(estudiante)">Ver</button></td>
+    
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  <a type="buttom" class="btn-green-avanza float-right btn-register mt-sm-2 mt-md-0" routerLink="/form-estudiantes">Registrar estudiante</a>
+</div>
+

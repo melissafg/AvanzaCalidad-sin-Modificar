@@ -1,0 +1,25 @@
+<div class = "container">
+    <h3 class="m-3 "><b>Tratamientos</b></h3>
+    <div class="table-responsive">
+      <table class ="table table-hover">
+        <thead class="thead">
+          <tr class = "text-center">
+            <th scope="col">Tratamiento</th>
+            <th scope="col">Descripción</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class = "text-center" *ngFor="let tratamiento of tratamientos">
+                <td><h6>{{tratamiento.tratamiento}} </h6></td>
+                <td ><h6>{{tratamiento.descripcion}}</h6></td>
+                <td>
+                <button type="button" class="btn-green-avanza float-right btn-propio m-1"  (click)="editarTratamiento(tratamiento.id)">Editar</button>
+                <button type="button" class="btn btn-outline-danger float-right btn-propio m-1" (click)="abrirModalEliminar(tratamiento)">Eliminar</button></td> 
+          
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <a  class="btn-green-avanza float-right btn-register mt-sm-2 mt-md-0" routerLink="/form-tratamientos">Registrar tratamiento </a>
+  </div>

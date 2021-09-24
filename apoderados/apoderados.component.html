@@ -1,0 +1,68 @@
+<div class="container">
+  <form class="form-horizontal" role="form">
+    <br>
+    <div class="row">
+
+      <div class="col-md-6">
+        <div class="form-group form-inline w-6">
+          <label class="pr-2 mt-2">Nombre o Apellido:</label>
+          <input type="text" class="form-control col-sm-8 col-md-5 col-lg-8" name="buscadorNombres" id="buscadorNombres_id"
+            (ngModelChange)="filtrarNombreApoderado($event)" [ngModel]="nombreApoderadoFiltrado">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group form-inline w-6">
+          <label for="filtroCelular" class="mr-sm-5 pr-sm-5 pr-md-2  mr-md-1 mt-2">Celular:</label>
+          <input [(ngModel)]="filtro.celular" (ngModelChange)="filtrarNombreApoderado($event)" type="string"
+            class="form-control col-sm-8 col-md-5 col-lg-5" name="filtroCelular">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group form-inline  w-6">
+          <label for="filtroCelular" class="pr-2 mt-2">Correo electrónico:</label>
+          <input [(ngModel)]="filtro.correoElectronico" (ngModelChange)="filtrarNombreApoderado($event)" type="string"
+            class="form-control col-sm-8 col-md-5 col-lg-8" name="filtroCorreoElectronico">
+        </div>
+      </div>
+
+    </div>
+  </form>
+  <hr>
+  <h3 class="m-3 "><b>Apoderados</b></h3>
+  <div class="table-responsive">
+    <table class=" table table-hover ">
+      <thead class="thead design-title-col">
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Celular</th>
+          <th scope="col">Correo electrónico</th>
+          <th scope="col">Dirección</th>
+          <th></th>
+        </tr>
+  
+      </thead>
+      <tbody>
+        <tr class="text-center" *ngFor="let apoderado of nombreApoderadosBuscados">
+          <td>
+            <h6>{{apoderado.nombres}} {{apoderado.apellidos}}</h6>
+          </td>
+          <td>
+            <h6>{{apoderado.celular}}</h6>
+          </td>
+          <td>
+            <h6>{{apoderado.correoElectronico}}</h6>
+          </td>
+          <td>
+            <h6>{{apoderado.direccion}}</h6>
+          </td>
+          <td class="pr-1"><button type="button" class="btn-green-avanza m-1 float-right"
+              (click)="openApoderado(apoderado)">Ver</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <a type="buttom" class="btn-green-avanza float-right btn-register mt-sm-2 mt-md-0" routerLink="/form-apoderados">Registrar apoderado
+  </a>
+
+</div>

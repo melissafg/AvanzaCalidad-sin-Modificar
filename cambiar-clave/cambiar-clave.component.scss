@@ -1,0 +1,72 @@
+.login-card {
+    width: 482.5px;
+    margin: auto;
+}
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;  
+    background-image: linear-gradient(rgba(0,0,0,0.01),rgba(0,0,0,0.01)),  url(../../../assets/images/fondo4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+
+.card-header{
+    border-radius: 20px 20px 0px 0px;
+}
+.card{
+    border-radius: 0px 20px 20px 0px;
+    background-color:  #efefef;
+    width: 400px;
+    height:380px;
+    max-width: 8cm;
+    border-style: solid; 
+    padding: 5px 10px 0px 10px;
+    float:right;
+}
+.card-body{
+    background-color:rgba(0,0,0,.03); 
+    height: 220px;
+    background-color:  #efefef;
+    padding: 0px 10px 0px 10px;
+}
+.btn-primary{
+    background-color: #007C61;
+    outline-color: #007C61;
+    border: #007C61;
+    margin-left: 18px;
+    width: 245px;
+}
+
+.titulo{
+    color: #484848;
+}
+.form-control{
+    border-radius: 8px;
+    border: 1.3px solid #007c61;
+}
+.card-footer{
+    background-color:  #efefef;
+    border-color: #efefef;
+    background-color:  transparent;
+    padding: 2px 0px 35.5px 0px;
+}
+.foto{
+    margin-top: 130px;
+    margin-left: 28px;
+    height: 80px;
+    background-color: transparent;
+}
+.div-verde{
+    height: 380px;
+    width: 180px;
+    background-color: #007C61;
+    border-radius: 20px 0px 0px 20px;
+    float: left;
+}
+.reset-pass{
+    color:#6495ED;
+    text-decoration: underline;
+ 
+}

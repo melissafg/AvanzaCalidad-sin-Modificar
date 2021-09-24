@@ -1,0 +1,23 @@
+<div class = "container">
+  <h3 class="m-3 "><b>Estados</b></h3>
+  <table class =" table table-hover ">
+    <thead class="thead design-title-col">
+        <tr>
+          <th scope="col">Número de estado</th>
+          <th scope="col">Estado</th>
+          <th></th>
+        </tr>
+
+      </thead>
+      <tbody>
+        <tr class = "text-center" *ngFor="let estado of estados">
+              <td ><h6>{{estado.numEstado}} </h6></td>
+              <td><h6>{{estado.estado}}</h6></td>
+              <td class="pr-1"><button type="button" class="btn-green-avanza m-1 float-right"  (click)="editarEstado(estado.id)">Editar</button>
+             <button type="button" class="btn btn-outline-danger m-1 float-right" (click)="abrirModalEliminar(estado)">Eliminar</button></td>                   
+        </tr>
+      </tbody>
+  </table>
+  <a  type="buttom" class="btn-green-avanza float-right btn-register" routerLink="/form-estados">Registrar estado </a>
+</div>
+ 

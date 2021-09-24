@@ -1,0 +1,23 @@
+<div class="container">
+    <h3 class="m-3 "><b>Diagnósticos</b></h3>
+    <table class="table table-hover">
+        <thead class="thead design-title-col">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Abreviatura</th>
+                <th scope="col">Diagnóstico</th>
+                <th></th>
+            </tr>   
+        </thead>
+        <tbody>
+            <tr class = "text-center" *ngFor="let diagnostico of diagnosticos">
+                <td style="width: 100px;" [ngStyle]="{'background-color':diagnostico.color}"></td>
+                <td><h6>{{diagnostico.codigoColor}}</h6></td>
+                <td><h6>{{diagnostico.diagnostico}}</h6></td>
+                <td class="pr-1" ><button type="button" class="btn-green-avanza m-1 float-right" (click)="EditarDiagnostico(diagnostico.id)">Editar</button></td>
+                
+            </tr>
+        </tbody>
+    </table>
+    <a type="buttom" class="btn-green-avanza float-right btn-register" routerLink="/form-diagnosticos">Registrar diagnóstico</a>
+</div>

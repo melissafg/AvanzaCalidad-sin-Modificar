@@ -1,0 +1,26 @@
+
+<div class = "container">
+  <h3 class="m-3 "><b>Profesoras</b></h3>
+  <table class =" table table-hover">
+    <thead class="thead design-title-col">
+      <tr>
+        <th scope="col ">Nombre</th>
+        <th scope="col">Celular</th>
+        <th scope="col">Teléfono</th>
+        <th></th>
+      </tr>
+
+    </thead>
+    <tbody>
+      <tr class = "text-center" *ngFor="let profesora of profesoras">
+            <td><h6>{{profesora.nombres}} {{profesora.apellidos}}</h6></td>
+            <td ><h6>{{profesora.celular}}</h6></td>
+            <td ><h6>{{profesora.telefono}}</h6></td>
+            <td class="pr-1"> <button type="button" class="btn-green-avanza m-1 float-right" (click)="abrirProfesora(profesora)">Ver</button></td>
+      </tr>
+
+    </tbody>
+  </table>
+  <a type="buttom" class="btn-green-avanza float-right btn-register" routerLink="/form-profesoras">Registrar profesora </a>
+</div>
+  
